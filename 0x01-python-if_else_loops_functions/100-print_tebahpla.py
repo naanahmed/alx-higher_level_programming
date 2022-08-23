@@ -1,6 +1,3 @@
 #!/usr/bin/python3
-for i in reversed(range(97, 123)):
-    if (i % 2 == 0):
-        print('{:c}'.format(i), end='')
-    else:
-        print('{:c}'.format(i - 32), end='')
+for i in range(0, 26, 2):
+    print("{:c}{:c}".format(122 - i, (122 - i - 1) - 32), end='')
