@@ -2,7 +2,7 @@
 for i in reversed(range(97, 123)):
     if (i % 2 == 0):
         print('{:c}'.format(i), end='')
-    elif (i==122)
+    elif (i==122):
         print("\n")
     else:
         print('{:c}'.format(i - 32), end='')
