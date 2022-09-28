@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-"""
-adding and saving script
-"""
+from os import path
+from sys import argv
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-import sys
+if path.exists('add_item.json'):
+    obj_json_file = load_from_json_file('add_item.json')
+else:
+    obj_json_file = []
 
-if __name__ == "__main__":
-    saving = __import__('5-save_to_json_file').save_to_json_file
-    loading = __import__('6-load_from_json_file').load_from_json_file
+for i in range(1, len(argv)):
+    obj_json_file.append(argv[i])
 
-    try:
-        items = loading("add_item.json")
-    except FileNotFoundError:
-        items = []
-    items.extend(sys.argv[1:])
-    saving(items, "add_item.json")
+save_to_json_file(obj_json_file, 'add_item.json')
